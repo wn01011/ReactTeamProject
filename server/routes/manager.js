@@ -62,10 +62,6 @@ router.route("/qnaInfo").post(async (req, res) => {
       { model: Users, attributes: ["userId", "userName", "userImg"] },
       { model: Products, attributes: ["brand", "name", "price", "img"] },
     ],
-    // include는 배열이고, 그 배열에서 뽑고싶은 관계를 맺은 데이터
-    // model: 관계 맺은 테이블 명 // attributes : 가지고 오고 싶은 칼럼명
-    // include는 배열이기 때문에 여러가지 관계를 한번에 가져오는 방법은
-    // 위와 같다.
   });
   // findAll로 찾은 모든 정보에 User 라는 정보를 새로 가져옴
   // 가져오는 정보는 내가 attributes에 적어둔 내용을 가져옴

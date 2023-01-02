@@ -3,11 +3,13 @@ import { useEffect } from "react";
 
 import ChatNoticeComponent from "./ChatNoticeComponet";
 import { action } from "../../../../modules/chatNoticeManager";
+import { socket } from "../../../../service/socket";
 
 const ChatNoticeContainer = () => {
   const dispatch = useDispatch();
   const chatNotice = useSelector((state) => state.chatNoticeManager);
   const noticeChager = (text) => dispatch(action.setChatNoticeManager(text));
+  useEffect(socket.emit("noticeMessage", chatNotice), [chatNotice]);
 
   return (
     <ChatNoticeComponent

@@ -29,7 +29,9 @@ export default function (server) {
       console.log(socket.rooms);
       io.to(data.room).emit("upload", data);
     });
-
+    socket.on("noticeMessage", (data) => {
+      io.emit(data);
+    });
     socket.on("leaveUser", (nick) => {
       io.emit("out", nick);
     });
