@@ -1,4 +1,5 @@
 import { Router } from "express";
+import express from "express";
 
 import user from "./user.js";
 import product from "./product.js";
@@ -12,6 +13,7 @@ import order from "./order.js";
 import readMore from "./readMore.js";
 import db from "../models/index.js";
 import cart from "./cart.js";
+import path from "path";
 
 const router = Router();
 
@@ -24,6 +26,12 @@ router.use("/order", order);
 router.use("/readmore", readMore);
 router.use("/cart", cart);
 router.use("/userPage", userPage);
+
+router.get("/", (req, res, next) => {
+  res.send(
+    express.static(path.join(__dirname, "../../ohoutest/build/index.html"))
+  );
+});
 
 async function setImages() {
   await fs.readdir("./Img", (err, datas) => {

@@ -5,7 +5,7 @@ const worldsArr = ["whole", "world1", "world2", "world3"];
 export default function (server) {
   const io = new Server(server, {
     cors: {
-      origin: "http://wn01011.errorcode.help",
+      origin: "http://43.201.59.92",
       credentials: true,
     },
   });

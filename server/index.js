@@ -13,7 +13,7 @@ import {
   check,
 } from "./controller/index.js";
 import routes from "./routes/index.js";
-
+import path from "path";
 const app = express();
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);
 });
-
+// app.use("/img", express.static(path.join(__dirname + "../ohoutest/build")));
 app.use(express.json());
 app.use(cookieParser());
 app.use(

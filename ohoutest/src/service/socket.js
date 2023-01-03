@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import socketIo from "socket.io-client";
 
-export const socket = socketIo("http://wn01011.errorcode.help", {
+export const socket = socketIo("http://43.201.59.92", {
   withCredentials: true,
 });
 export const SocketContext = createContext(6);
